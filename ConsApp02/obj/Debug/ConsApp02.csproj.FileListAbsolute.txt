@@ -1,0 +1,7 @@
+C:\Users\Family\Desktop\GeekBrains\Основы языка C#\ConsApp02\ConsApp02\bin\Debug\ConsApp02.exe.config
+C:\Users\Family\Desktop\GeekBrains\Основы языка C#\ConsApp02\ConsApp02\bin\Debug\ConsApp02.exe
+C:\Users\Family\Desktop\GeekBrains\Основы языка C#\ConsApp02\ConsApp02\bin\Debug\ConsApp02.pdb
+C:\Users\Family\Desktop\GeekBrains\Основы языка C#\ConsApp02\ConsApp02\obj\Debug\ConsApp02.csprojAssemblyReference.cache
+C:\Users\Family\Desktop\GeekBrains\Основы языка C#\ConsApp02\ConsApp02\obj\Debug\ConsApp02.csproj.CoreCompileInputs.cache
+C:\Users\Family\Desktop\GeekBrains\Основы языка C#\ConsApp02\ConsApp02\obj\Debug\ConsApp02.exe
+C:\Users\Family\Desktop\GeekBrains\Основы языка C#\ConsApp02\ConsApp02\obj\Debug\ConsApp02.pdb
