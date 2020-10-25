@@ -34,6 +34,23 @@ namespace ConsApp02
             return number;
         }
         #endregion
+
+        /*
+        Метод для 4-го задания
+        Реализовать метод проверки логина и пароля. 
+        На вход подается логин и пароль. На выходе истина, если прошел авторизацию, и ложь, если не прошел (Логин: root, Password: GeekBrains). 
+        Используя метод проверки логина и пароля, написать программу: пользователь вводит логин и пароль, программа пропускает его дальше или не пропускает. 
+        С помощью цикла do while ограничить ввод пароля тремя попытками. 
+         */
+        #region
+        static bool passwordConf(string login, string password)
+        {
+            if (login == "root" && password == "GeekBrains")
+                return true;
+            else
+                return false;                
+        }
+        #endregion
         static void Main(string[] args)
         {
             Lesson01 lesson = new Lesson01();
@@ -68,9 +85,44 @@ namespace ConsApp02
                     sum += a3;
             }
             while (a3 != 0);
-            Console.WriteLine($"Сумма введённых полжительных нечётных цифр = {sum}");
+            Console.WriteLine($"Сумма введённых полoжительных нечётных цифр = {sum}");
+            #endregion
+
+            /*
+        Задание "№4
+        Реализовать метод проверки логина и пароля. 
+        На вход подается логин и пароль. На выходе истина, если прошел авторизацию, и ложь, если не прошел (Логин: root, Password: GeekBrains). 
+        Используя метод проверки логина и пароля, написать программу: пользователь вводит логин и пароль, программа пропускает его дальше или не пропускает. 
+        С помощью цикла do while ограничить ввод пароля тремя попытками. 
+         */
+
+            #region
+            Console.WriteLine("Введите логин и пароль");
+            int count = 0;
+            do
+            {
+                Console.Write("Введите логин: ");
+                string login = Console.ReadLine();
+                Console.Write("Введите пароль: ");
+                string password = Console.ReadLine();
+                if (passwordConf(login, password) == true)
+                {
+                    Console.WriteLine("поздравляем! Вы успешно авторизовались!");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Вы неверно ввели логин или пароль!");
+                    count++;
+                }
+
+            }
+            while (count < 3);
+            if (count == 3)
+                Console.WriteLine($"Вы ввели {count} раза неправильный логин или пароль!\nВ авторизации Отказано!");
             #endregion
             lesson.Pause();
         }
     }
 }
+ 
