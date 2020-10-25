@@ -10,8 +10,8 @@ namespace ConsApp02
 {
     class Program
     {
-        #region // создание метода для 1-го задания
-        static int MinSize(int a, int b, int c)
+        #region // Написать метод, возвращающий минимальное из трех чисел.(Метод для 1-го задания)
+        static int minSize(int a, int b, int c)
         {
             int min = 0;
             if (a < b && a < c)
@@ -22,6 +22,16 @@ namespace ConsApp02
                  min = c;
             return min;
         }
+        #endregion // Написать метод подсчета количества цифр числа (Метод для 2-го задания)
+        static int numberDigits(string a)
+        {
+            int number = 0;
+            while (number < a.Length)
+                number++;
+            return number;
+        }
+        #region
+
         #endregion
         static void Main(string[] args)
         {
@@ -34,9 +44,15 @@ namespace ConsApp02
             int b = Convert.ToInt32(Console.ReadLine());
             Console.Write("Введите значение для 3-eй переменной: ");
             int c = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"Минмальное значение = {MinSize(a, b, c)}");
+            Console.WriteLine($"Минмальное значение = {minSize(a, b, c)}");
             #endregion
 
+            #region // Задание №2. Написать метод подсчета количества цифр числа
+            Console.WriteLine("Задание №2. Написать метод подсчета количества цифр числа");
+            string a2 = Console.ReadLine();
+            Console.WriteLine($"Количество чисел в введённом числе = {numberDigits(a2)}");
+
+            #endregion
             lesson.Pause();
         }
     }
