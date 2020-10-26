@@ -168,6 +168,29 @@ namespace ConsApp02
             double index = IMT(weig, heig);
             IMTMessage(index, weig, heig);
             #endregion
+            
+            #region // Задание №6. Написать программу подсчета количества «Хороших» чисел в диапазоне от 1 до 1 000 000 000. Хорошим называется число, которое делится на сумму своих цифр
+            Console.WriteLine("Задание №6. Написать программу подсчета количества «Хороших» чисел в диапазоне от 1 до 1 000 000 000. Хорошим называется число, которое делится на сумму своих цифр");
+            int check = 0;
+            DateTime start = DateTime.Now;
+            for(int i = 1; i < 1000000000; i++)
+            {
+                sum = 0;
+                int value = i;
+                int nindex = i;
+                while (nindex != 0) 
+                {
+                    sum += nindex % 10;
+                    nindex = nindex / 10; 
+                }
+                if (value % sum == 0)
+                {
+                    check++;
+                }
+            }
+            DateTime finish = DateTime.Now;
+            Console.WriteLine($"Количество хороших чисел = {check}, время выполнения программы = {finish - start}");
+            #endregion
             lesson.Pause();
         }
     }
