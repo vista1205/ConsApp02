@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -89,9 +90,17 @@ namespace ConsApp02
         #region // Задание №7. Разработать рекурсивный метод, который выводит на экран числа от a до b (a<b)
         static void Rek(int a, int b)
         {
-            if (a == b) return;
-            Console.WriteLine(a);
-            Rek(a + 1, b);
+            if (a >= b) return;
+            if (a < b)
+            {
+                Console.WriteLine(a);
+                Rek(a + 1, b);
+            }
+        }
+
+        static int Sumrek(int a, int b)
+        {
+            return a == b ? b : a + Sumrek(a + 1, b);
         }
 
         #endregion
@@ -209,6 +218,10 @@ namespace ConsApp02
             Console.Write("Введите значение Б: ");
             b = Convert.ToInt32(Console.ReadLine());
             Rek(a, b);
+
+            // Задание 7.б
+
+            Console.WriteLine($"Сумма чисел в диапазоне от {a} до {b}: {Sumrek(a, b)}");
             #endregion
             lesson.Pause();
         }
