@@ -8,6 +8,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
+//Домашнее задание выполнил Козлов Виталий
+
 namespace ConsApp02
 {
     class Program
