@@ -85,6 +85,16 @@ namespace ConsApp02
             return Math.Abs(weig - 21.745 * Math.Pow((heig / 100), 2));
         }
         #endregion
+
+        #region // Задание №7. Разработать рекурсивный метод, который выводит на экран числа от a до b (a<b)
+        static void Rek(int a, int b)
+        {
+            if (a == b) return;
+            Console.WriteLine(a);
+            Rek(a + 1, b);
+        }
+
+        #endregion
         static void Main(string[] args)
         {
             Lesson01 lesson = new Lesson01();
@@ -190,6 +200,15 @@ namespace ConsApp02
             }
             DateTime finish = DateTime.Now;
             Console.WriteLine($"Количество хороших чисел = {check}, время выполнения программы = {finish - start}");
+            #endregion
+
+            #region // Задание №7. Разработать рекурсивный метод, который выводит на экран числа от a до b (a<b)
+            Console.WriteLine("Задание №7. Разработать рекурсивный метод, который выводит на экран числа от a до b (a<b)");
+            Console.Write("Введите значение А: ");
+            a = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите значение Б: ");
+            b = Convert.ToInt32(Console.ReadLine());
+            Rek(a, b);
             #endregion
             lesson.Pause();
         }
