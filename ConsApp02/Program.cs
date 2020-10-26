@@ -26,11 +26,14 @@ namespace ConsApp02
         #endregion 
 
         #region // Написать метод подсчета количества цифр числа (Метод для 2-го задания)
-        static int numberDigits(string a)
+        static int numberDigits(int a)
         {
             int number = 0;
-            while (number < a.Length)
+            while (a != 0)
+            {
+                a = a / 10;
                 number++;
+            }
             return number;
         }
         #endregion
@@ -42,13 +45,44 @@ namespace ConsApp02
         Используя метод проверки логина и пароля, написать программу: пользователь вводит логин и пароль, программа пропускает его дальше или не пропускает. 
         С помощью цикла do while ограничить ввод пароля тремя попытками. 
          */
-        #region
+        #region // задание №4. Написать метод для проверки логина и пароля
         static bool passwordConf(string login, string password)
         {
             if (login == "root" && password == "GeekBrains")
                 return true;
             else
                 return false;                
+        }
+        #endregion
+
+
+        #region //Задание №5. Написать программу, которая запрашивает массу и рост человека, вычисляет его индекс массы и сообщает, нужно ли человеку похудеть, набрать вес или все в норме;
+        static double IMT(float weig, float heig)
+        {
+            return weig / (Math.Pow((heig / 100), 2));
+        }
+
+        static void IMTMessage(double index, float weig, float heig)
+        {
+            if (index <= 16)
+                Console.WriteLine($"Ваш ИМТ: {index:f2}. У вас выраженный дефицит массы тела. Необходимо набрать {imtRecommend(weig,heig):f2}кг.");
+            else if (index > 16 && index <= 18.5)
+                Console.WriteLine($"Ваш ИМТ: {index:f2}. У вас Недостаточная (дефицит) массы тела. Необходимо набрать {imtRecommend(weig, heig):f2}кг.");
+            else if (index > 18.5 && index <= 24.99)
+                Console.WriteLine($"Ваш ИМТ: {index:f2}. Ваш вес в норме");
+            else if (index >= 25 && index <= 30)
+                Console.WriteLine($"Ваш ИМТ: {index:f2}. У вас избыточная масса тела (предожирение). Необходимо скинуть {imtRecommend(weig, heig):f2}кг.");
+            else if (index > 30 && index <= 35)
+                Console.WriteLine($"Ваш ИМТ: {index:f2}. У вас ожирение первой степени. Необходимо скинуть {imtRecommend(weig, heig):f2}кг.");
+            else if (index > 35 && index <= 40)
+                Console.WriteLine($"Ваш ИМТ: {index:f2}. У вас ожирение второй степени. Необходимо скинуть {imtRecommend(weig, heig):f2}кг.");
+            else if (index > 40)
+                Console.WriteLine($"Ваш ИМТ: {index:f2}. У вас ожирение третьей степени (морбидное). Необходимо скинуть {imtRecommend(weig, heig):f2}кг.");
+        }
+
+        static double imtRecommend(float weig, float heig)
+        {
+            return Math.Abs(weig - 21.745 * Math.Pow((heig / 100), 2));
         }
         #endregion
         static void Main(string[] args)
@@ -68,7 +102,8 @@ namespace ConsApp02
 
             #region // Задание №2. Написать метод подсчета количества цифр числа
             Console.WriteLine("Задание №2. Написать метод подсчета количества цифр числа");
-            string a2 = Console.ReadLine();
+            Console.Write("Введите любое число: ");
+            int a2 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine($"Количество чисел в введённом числе = {numberDigits(a2)}");
             #endregion
 
@@ -96,7 +131,8 @@ namespace ConsApp02
         С помощью цикла do while ограничить ввод пароля тремя попытками. 
          */
 
-            #region
+            #region // Задание №4. Реализовать метод проверки логина и пароля.
+            Console.WriteLine("Задание №4. Реализовать метод проверки логина и пароля.");
             Console.WriteLine("Введите логин и пароль");
             int count = 0;
             do
@@ -120,6 +156,17 @@ namespace ConsApp02
             while (count < 3);
             if (count == 3)
                 Console.WriteLine($"Вы ввели {count} раза неправильный логин или пароль!\nВ авторизации Отказано!");
+            #endregion
+
+            #region // Задание №5. Написать программу, которая запрашивает массу и рост человека, вычисляет его индекс массы и сообщает, нужно ли человеку похудеть, набрать вес или все в норме
+            Console.WriteLine("Задание №5. Написать программу, которая запрашивает массу и рост человека, вычисляет его индекс массы и сообщает, нужно ли человеку похудеть, набрать вес или все в норме");
+            Console.WriteLine("Введите свой рост в см. и вес в кг.");
+            Console.Write("Введите свой вес в кг.: ");
+            float weig = Convert.ToSingle(Console.ReadLine());
+            Console.Write("Введите свой рост в см.: ");
+            float heig = Convert.ToSingle(Console.ReadLine());
+            double index = IMT(weig, heig);
+            IMTMessage(index, weig, heig);
             #endregion
             lesson.Pause();
         }
